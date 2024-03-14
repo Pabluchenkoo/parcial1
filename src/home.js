@@ -15,18 +15,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import ImageDisplay from "./imageDisplay";
 import {useEffect, useState} from "react";
 
-function Copyright(props) {
-    return (
-        <Typography variant="body2" color="text.secondary" align="center" {...props}>
-            {'Copyright © '}
-            <Link color="inherit" href="https://mui.com/">
-                Your Website
-            </Link>{' '}
-            {new Date().getFullYear()}
-            {'.'}
-        </Typography>
-    );
-}
+
 
 const defaultTheme = createTheme();
 
@@ -37,7 +26,7 @@ export default function Home() {
 
     useEffect(() => {
 
-        fetch('https://raw.githubusercontent.com/Pabluchenkoo/parcial1/main/src/user.json')
+        fetch('https://raw.githubusercontent.com/Pabluchenkoo/parcial1/main/src/user2.json')
             .then(response => {
                 console.log(user)
                 if (!response.ok) {
