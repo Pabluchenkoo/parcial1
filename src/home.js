@@ -13,6 +13,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import ImageDisplay from "./imageDisplay";
+import {useEffect, useState} from "react";
 
 function Copyright(props) {
     return (
@@ -30,6 +31,28 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 export default function Home() {
+
+    const [user, setUser] = useState([]);
+
+
+    useEffect(() => {
+
+        fetch('https://raw.githubusercontent.com/Pabluchenkoo/parcial1/main/src/user.json')
+            .then(response => {
+                console.log(user)
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => setUser(data))
+            .catch(error => console.error('There has been a problem with your fetch operation:', error));
+    }, []);
+
+
+
+
+
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
@@ -55,35 +78,35 @@ export default function Home() {
 
                         <Grid item xs={12} sm={6}>
                             <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-                                <LockOutlinedIcon />
+                                <ImageDisplay/>
                             </Avatar>
                         </Grid>
                         <Grid item xs={12} sm={2}>
                             <Typography component="h2" variant="p">
-                                Username
+                                {user[0].username}
                             </Typography>
                             <Typography component="h4" variant="p">
-                                First name last name
+                                {user[0].fistName} {user[0].lastName}
                             </Typography>
                             <Typography component="p" variant="p">
-                                email
+                                website
                             </Typography>
 
                         </Grid>
                         <Grid container spacing={1} sm={ {textAlign:'right'}}>
                             <Grid item xs={12} sm={2}>
                                 <Typography component="h2" variant="p">
-                                  #  Posts
+                                    {user[0].posts}  Posts
                                 </Typography>
                             </Grid>
                             <Grid item xs={12} sm={2}>
                                 <Typography component="h2" variant="p">
-                                   #  Followers
+                                    {user[0].followers}  Followers
                                 </Typography>
                             </Grid>
                             <Grid item xs={12} sm={2}>
                                 <Typography component="h2" variant="p">
-                                   #  Following
+                                    {user[0].following}  Following
                                 </Typography>
                             </Grid>
 
