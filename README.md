@@ -6,7 +6,7 @@ Juan Pablo Junco\
 # Atención:
 El proyecto presenta un error al correrlo esto por no manejar una promesa correctamente. La manera de solucionarlo es pegar la siguiente linea de código. Que lo unico que hace es verificar que lo que sea que traiga la promesa contenga algo.
 
-reemplazar la linea 66:103 con el siguiente código:
+reemplazar la linea 66:103 de la clase home.js con el siguiente código:
 ```
 <Grid container spacing={1} >
 
