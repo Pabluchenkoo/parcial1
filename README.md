@@ -49,4 +49,4 @@ reemplazar la linea 66:103 de la clase home.js con el siguiente código:
                     </Grid>
 ```
 
-No se añadio nada más de lo que se desarrollo durante la hora del parcial, más que la validación de user.length > 0 para pintar el fragmento.
+No se añadio nada más de lo que se desarrollo durante la hora del parcial, más que la validación de user.length > 0 para pintar el fragmento. (Por razones de tiempo no logre aplicar esto durante la hora del parcial) :)
